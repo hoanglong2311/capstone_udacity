@@ -5,7 +5,7 @@ LABEL author="longhoangnguyen191@gmail.com"
 # Working Directory
 WORKDIR /app
 
-# Copy source code to working directory
+# Copy all files from current directory to working dir in container
 COPY . /app/
 
 # Install packages from requirements.txt
@@ -13,7 +13,7 @@ COPY . /app/
 RUN pip install  --no-cache-dir --upgrade pip && \
     pip install  --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
 
-# Expose port 80
+# Expose container port 80
 EXPOSE 80
 
 # Run app at container launch
