@@ -2,8 +2,8 @@
 # This file tags and uploads an image to Docker Hub
 
 # Assumes that an image is built via `run_docker.sh`
-DOCKER_HUB_ID="huynhlongploc"
-DOCKER_REPOSITORY="capstone_project"
+DOCKER_HUB_ID="de150191"
+DOCKER_REPOSITORY="udacity_final_project"
 VERSION="1.0"
 
 # Step 1:
