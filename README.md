@@ -1,6 +1,6 @@
 # udacity_devops_capstone
 #GET_PASSES_THIS_REPO_UDACITY_PLEASE
-[![huynhlongploc](https://circleci.com/gh/LLHH2007/udacityCapstoneProject.svg?style=svg)](https://app.circleci.com/pipelines/github/LLHH2007/udacityCapstoneProject)
+
 #######
 This app use:
 1. EKS deploy by aws cli: CF attached in infra/cluster.yml
