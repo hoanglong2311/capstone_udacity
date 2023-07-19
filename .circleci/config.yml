@@ -66,7 +66,7 @@ jobs:
             source .devops-capstone/bin/activate
             make lint
 
-  build-and-push-docker-image:
+  build-and-push-docker-image-to-docker-hub:
     docker:
       - image: cimg/node:13.8.0
     steps:
@@ -129,7 +129,7 @@ jobs:
               --output jsonpath='{.status.loadBalancer.ingress[0].hostname}')
             echo "LOAD_BALANCER: $LOAD_BALANCER"
 
-  wait-manual-approval:
+  need-manual-approval:
     docker:
       - image: cimg/node:13.8.0
     steps:
@@ -194,14 +194,14 @@ workflows:
   default:
     jobs:
       - run-lint
-      - build-and-push-docker-image:
+      - build-and-push-docker-image-to-docker-hub:
           requires: [run-lint]
       - deploy-green:
-          requires: [build-and-push-docker-image]
-      - wait-manual-approval:
+          requires: [build-and-push-docker-image-to-docker-hub]
+      - need-manual-approval:
           type: approval
           requires: [deploy-green]
       - deploy-new-blue:
-          requires: [wait-manual-approval]
+          requires: [need-manual-approval]
       - remove-old-blue:
           requires: [deploy-new-blue]
