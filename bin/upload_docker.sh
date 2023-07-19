@@ -8,15 +8,17 @@ VERSION="1.0"
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+# With pattern <hub-user>/<repo-name>
 dockerpath=${DOCKER_HUB_ID}/${DOCKER_REPOSITORY}
 
 # Step 2:
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+# Login to docker hub
 docker login -u ${DOCKER_HUB_ID} -p ${DOCKER_PASSWORD}
+# Tag image with dockerpath and version
 docker tag ${DOCKER_REPOSITORY}:${VERSION} ${dockerpath}:${VERSION}
 
 # Step 3:
-# Push image to a docker repository
+# Push image to a docker repository with dockerpath and version
 docker push ${dockerpath}:${VERSION}

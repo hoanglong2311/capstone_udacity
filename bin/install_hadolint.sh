@@ -2,6 +2,7 @@
 
 HADOLINT_FILE=https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
 
+# Install hadolint if not already installed 
 test -e ./bin/hadolint ||
   {
     wget -qO ./bin/hadolint "${HADOLINT_FILE}"

@@ -3,6 +3,7 @@
 OS=$(uname | tr "[:upper:]" "[:lower:]")
 COMMAND="kubectl"
 
+# Install kubectl if not already installed (https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 test -e ./bin/${COMMAND} ||
     {
         curl -sSLo ./bin/${COMMAND} "https://dl.k8s.io/release/$(curl -L -s \
